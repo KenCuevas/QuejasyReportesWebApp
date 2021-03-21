@@ -11,7 +11,8 @@ namespace WebAppReporteriayQuejas
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Puesto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,9 +20,11 @@ namespace WebAppReporteriayQuejas
         {
             this.Usuarios = new HashSet<Usuarios>();
         }
-    
+        [Display(Name = "Puesto")]
         public int Id_Puesto { get; set; }
+        [Display(Name = "Descripcion del puesto")]
         public string Des_Puesto { get; set; }
+        [Display(Name = "Descripcion de funciones")]
         public string Des_Funciones { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,7 +11,8 @@ namespace WebAppReporteriayQuejas
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Pais
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,8 +20,10 @@ namespace WebAppReporteriayQuejas
         {
             this.Clientes = new HashSet<Clientes>();
         }
-    
+
+        [Display(Name = "Pais")]
         public int Id_Pais { get; set; }
+        [Display(Name = "Pais destino")]
         public string Pais_Perteneciente { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

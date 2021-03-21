@@ -11,23 +11,32 @@ namespace WebAppReporteriayQuejas
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Clientes
     {
+        [Display(Name = "Cliente")]
         public int Id_Cliente { get; set; }
         public string Identificacion { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
+        [Display(Name = "Fecha de creación")]
         public System.DateTime Fecha_Creacion { get; set; }
+        [Display(Name = "Estado")]
         public int Id_Estado { get; set; }
+        [Display(Name = "Oficina destino")]
         public int Id_Oficina { get; set; }
+        [Display(Name = "Servidor asignado")]
         public int Id_Servidor { get; set; }
         public string Provincia { get; set; }
         public string Sector { get; set; }
         public string Municipio { get; set; }
         public string Barrio { get; set; }
+        [Display(Name = "Dirección primaria")]
         public string Direccion_1 { get; set; }
+        [Display(Name = "Dirección secundaria")]
         public string Direccion_2 { get; set; }
+       [Display(Name= "Pais")]
         public int Id_Pais { get; set; }
     
         public virtual Estado_Clientes Estado_Clientes { get; set; }

@@ -11,7 +11,8 @@ namespace WebAppReporteriayQuejas
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Usuarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,8 +21,9 @@ namespace WebAppReporteriayQuejas
             this.Quejas = new HashSet<Quejas>();
             this.Reclamo = new HashSet<Reclamo>();
         }
-    
+        [Display(Name = "Usuario")]
         public int Id_Usuario { get; set; }
+        [Display(Name = "Fecha de ingreso")]
         public System.DateTime Fecha_Creacion { get; set; }
         public int Id_Rol { get; set; }
         public int Id_Puesto { get; set; }

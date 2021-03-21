@@ -11,7 +11,8 @@ namespace WebAppReporteriayQuejas
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Oficinas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -28,7 +29,9 @@ namespace WebAppReporteriayQuejas
         public string Municipio { get; set; }
         public string Sector { get; set; }
         public string Barrio { get; set; }
+        [Display(Name = "Direccion primaria")]
         public string Direccion_1 { get; set; }
+        [Display(Name = "Direccion secundaria")]
         public string Direccion_2 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

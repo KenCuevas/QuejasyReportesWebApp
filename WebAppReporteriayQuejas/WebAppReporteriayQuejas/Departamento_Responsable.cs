@@ -11,7 +11,8 @@ namespace WebAppReporteriayQuejas
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Departamento_Responsable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,8 +21,9 @@ namespace WebAppReporteriayQuejas
             this.Quejas = new HashSet<Quejas>();
             this.Reclamo = new HashSet<Reclamo>();
         }
-    
+        [Display(Name = "Departamento responsable")]
         public int Id_Departamento_Responsable { get; set; }
+        [Display(Name = "Descripcion del departamento")]
         public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
