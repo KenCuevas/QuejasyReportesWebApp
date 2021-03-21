@@ -1,0 +1,50 @@
+﻿@model WebAppReporteriayQuejas.Usuarios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Usuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Creacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Creacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Puesto.Des_Puesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Puesto.Des_Puesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Usuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

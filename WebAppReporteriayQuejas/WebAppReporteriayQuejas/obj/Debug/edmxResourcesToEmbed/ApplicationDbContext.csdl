@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AppReportesyQuejasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="Id_Cliente" />
+    </Key>
+    <Property Name="Id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Id_Estado" Type="Int32" Nullable="false" />
+    <Property Name="Id_Oficina" Type="Int32" Nullable="false" />
+    <Property Name="Id_Servidor" Type="Int32" Nullable="false" />
+    <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Barrio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Pais" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Estado_Clientes" Relationship="Self.FK_Clientes_Estado_Clientes" FromRole="Clientes" ToRole="Estado_Clientes" />
+    <NavigationProperty Name="Oficinas" Relationship="Self.FK_Clientes_Oficinas" FromRole="Clientes" ToRole="Oficinas" />
+    <NavigationProperty Name="Pais" Relationship="Self.FK_Clientes_Pais" FromRole="Clientes" ToRole="Pais" />
+    <NavigationProperty Name="Servidor" Relationship="Self.FK_Clientes_Servidor" FromRole="Clientes" ToRole="Servidor" />
+  </EntityType>
+  <EntityType Name="Departamento_Origen">
+    <Key>
+      <PropertyRef Name="Id_Departamento_Origen" />
+    </Key>
+    <Property Name="Id_Departamento_Origen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Quejas" Relationship="Self.FK_Quejas_Departamento_Origen" FromRole="Departamento_Origen" ToRole="Quejas" />
+    <NavigationProperty Name="Reclamo" Relationship="Self.FK_Reclamo_Departamento_Origen" FromRole="Departamento_Origen" ToRole="Reclamo" />
+  </EntityType>
+  <EntityType Name="Departamento_Responsable">
+    <Key>
+      <PropertyRef Name="Id_Departamento_Responsable" />
+    </Key>
+    <Property Name="Id_Departamento_Responsable" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Quejas" Relationship="Self.FK_Quejas_Departamento_Responsable" FromRole="Departamento_Responsable" ToRole="Quejas" />
+    <NavigationProperty Name="Reclamo" Relationship="Self.FK_Reclamo_Departamento_Responsable" FromRole="Departamento_Responsable" ToRole="Reclamo" />
+  </EntityType>
+  <EntityType Name="Estado_Clientes">
+    <Key>
+      <PropertyRef Name="Id_Estado" />
+    </Key>
+    <Property Name="Id_Estado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Estado_Clientes" FromRole="Estado_Clientes" ToRole="Clientes" />
+  </EntityType>
+  <EntityType Name="Estado_Reclamacion">
+    <Key>
+      <PropertyRef Name="Id_Estado_Reclamacion" />
+    </Key>
+    <Property Name="Id_Estado_Reclamacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Quejas" Relationship="Self.FK_Quejas_Estado_Reclamacion" FromRole="Estado_Reclamacion" ToRole="Quejas" />
+  </EntityType>
+  <EntityType Name="Oficinas">
+    <Key>
+      <PropertyRef Name="Id_Oficina" />
+    </Key>
+    <Property Name="Id_Oficina" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Zonas" Type="Int32" Nullable="false" />
+    <Property Name="Id_Region" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Barrio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion_1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Oficinas" FromRole="Oficinas" ToRole="Clientes" />
+    <NavigationProperty Name="Regiones" Relationship="Self.FK_Oficinas_Regiones" FromRole="Oficinas" ToRole="Regiones" />
+    <NavigationProperty Name="Zonas" Relationship="Self.FK_Oficinas_Zonas" FromRole="Oficinas" ToRole="Zonas" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="Id_Pais" />
+    </Key>
+    <Property Name="Id_Pais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pais_Perteneciente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Pais" FromRole="Pais" ToRole="Clientes" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="Id_Puesto" />
+    </Key>
+    <Property Name="Id_Puesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Des_Puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Des_Funciones" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Puesto" FromRole="Puesto" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Quejas">
+    <Key>
+      <PropertyRef Name="Id_Quejas" />
+    </Key>
+    <Property Name="Id_Quejas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Tipo_Quejas" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion_Quejas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Departamento_Origen" Type="Int32" Nullable="false" />
+    <Property Name="Id_Departamento_Responsable" Type="Int32" Nullable="false" />
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Queja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_Queja" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Id_Estado_Reclamacion" Type="Int32" Nullable="false" />
+    <Property Name="Comentario_Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Departamento_Origen" Relationship="Self.FK_Quejas_Departamento_Origen" FromRole="Quejas" ToRole="Departamento_Origen" />
+    <NavigationProperty Name="Departamento_Responsable" Relationship="Self.FK_Quejas_Departamento_Responsable" FromRole="Quejas" ToRole="Departamento_Responsable" />
+    <NavigationProperty Name="Estado_Reclamacion" Relationship="Self.FK_Quejas_Estado_Reclamacion" FromRole="Quejas" ToRole="Estado_Reclamacion" />
+    <NavigationProperty Name="Tipo_Quejas" Relationship="Self.FK_Quejas_Tipo_Quejas" FromRole="Quejas" ToRole="Tipo_Quejas" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Quejas_Usuarios" FromRole="Quejas" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Reclamo">
+    <Key>
+      <PropertyRef Name="Id_Reclamo" />
+    </Key>
+    <Property Name="Id_Reclamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Tipo_Reclamacion" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion_Reclamacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Departamento_Origen" Type="Int32" Nullable="false" />
+    <Property Name="Id_Departamento_Responsable" Type="Int32" Nullable="false" />
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Reclamacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Hora_Reclamacion" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="Id_Estado_Reclamacion" Type="Int32" Nullable="false" />
+    <Property Name="Comentario_Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Departamento_Origen" Relationship="Self.FK_Reclamo_Departamento_Origen" FromRole="Reclamo" ToRole="Departamento_Origen" />
+    <NavigationProperty Name="Departamento_Responsable" Relationship="Self.FK_Reclamo_Departamento_Responsable" FromRole="Reclamo" ToRole="Departamento_Responsable" />
+    <NavigationProperty Name="Tipo_Reclamacion" Relationship="Self.FK_Reclamo_Tipo_Reclamacion" FromRole="Reclamo" ToRole="Tipo_Reclamacion" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Reclamo_Usuarios" FromRole="Reclamo" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Regiones">
+    <Key>
+      <PropertyRef Name="Id_Region" />
+    </Key>
+    <Property Name="Id_Region" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Oficinas" Relationship="Self.FK_Oficinas_Regiones" FromRole="Regiones" ToRole="Oficinas" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id_Rol" />
+    </Key>
+    <Property Name="Id_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Role" FromRole="Role" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Servidor">
+    <Key>
+      <PropertyRef Name="Id_Servidor" />
+    </Key>
+    <Property Name="Id_Servidor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo_Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Servidor" FromRole="Servidor" ToRole="Clientes" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Quejas">
+    <Key>
+      <PropertyRef Name="Id_Tipo_Quejas" />
+    </Key>
+    <Property Name="Id_Tipo_Quejas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Quejas" Relationship="Self.FK_Quejas_Tipo_Quejas" FromRole="Tipo_Quejas" ToRole="Quejas" />
+  </EntityType>
+  <EntityType Name="Tipo_Reclamacion">
+    <Key>
+      <PropertyRef Name="Id_Tipo_Reclamacion" />
+    </Key>
+    <Property Name="Id_Tipo_Reclamacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Reclamo" Relationship="Self.FK_Reclamo_Tipo_Reclamacion" FromRole="Tipo_Reclamacion" ToRole="Reclamo" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id_Usuario" />
+    </Key>
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fecha_Creacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Id_Rol" Type="Int32" Nullable="false" />
+    <Property Name="Id_Puesto" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Puesto" Relationship="Self.FK_Usuarios_Puesto" FromRole="Usuarios" ToRole="Puesto" />
+    <NavigationProperty Name="Quejas" Relationship="Self.FK_Quejas_Usuarios" FromRole="Usuarios" ToRole="Quejas" />
+    <NavigationProperty Name="Reclamo" Relationship="Self.FK_Reclamo_Usuarios" FromRole="Usuarios" ToRole="Reclamo" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Usuarios_Role" FromRole="Usuarios" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Zonas">
+    <Key>
+      <PropertyRef Name="Id_Zonas" />
+    </Key>
+    <Property Name="Id_Zonas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Oficinas" Relationship="Self.FK_Oficinas_Zonas" FromRole="Zonas" ToRole="Oficinas" />
+  </EntityType>
+  <Association Name="FK_Clientes_Estado_Clientes">
+    <End Role="Estado_Clientes" Type="Self.Estado_Clientes" Multiplicity="1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado_Clientes">
+        <PropertyRef Name="Id_Estado" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="Id_Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_Oficinas">
+    <End Role="Oficinas" Type="Self.Oficinas" Multiplicity="1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oficinas">
+        <PropertyRef Name="Id_Oficina" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="Id_Oficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_Pais">
+    <End Role="Pais" Type="Self.Pais" Multiplicity="1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="Id_Pais" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="Id_Pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clientes_Servidor">
+    <End Role="Servidor" Type="Self.Servidor" Multiplicity="1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servidor">
+        <PropertyRef Name="Id_Servidor" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="Id_Servidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quejas_Departamento_Origen">
+    <End Role="Departamento_Origen" Type="Self.Departamento_Origen" Multiplicity="1" />
+    <End Role="Quejas" Type="Self.Quejas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento_Origen">
+        <PropertyRef Name="Id_Departamento_Origen" />
+      </Principal>
+      <Dependent Role="Quejas">
+        <PropertyRef Name="Id_Departamento_Origen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reclamo_Departamento_Origen">
+    <End Role="Departamento_Origen" Type="Self.Departamento_Origen" Multiplicity="1" />
+    <End Role="Reclamo" Type="Self.Reclamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento_Origen">
+        <PropertyRef Name="Id_Departamento_Origen" />
+      </Principal>
+      <Dependent Role="Reclamo">
+        <PropertyRef Name="Id_Departamento_Origen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quejas_Departamento_Responsable">
+    <End Role="Departamento_Responsable" Type="Self.Departamento_Responsable" Multiplicity="1" />
+    <End Role="Quejas" Type="Self.Quejas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento_Responsable">
+        <PropertyRef Name="Id_Departamento_Responsable" />
+      </Principal>
+      <Dependent Role="Quejas">
+        <PropertyRef Name="Id_Departamento_Responsable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reclamo_Departamento_Responsable">
+    <End Role="Departamento_Responsable" Type="Self.Departamento_Responsable" Multiplicity="1" />
+    <End Role="Reclamo" Type="Self.Reclamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento_Responsable">
+        <PropertyRef Name="Id_Departamento_Responsable" />
+      </Principal>
+      <Dependent Role="Reclamo">
+        <PropertyRef Name="Id_Departamento_Responsable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quejas_Estado_Reclamacion">
+    <End Role="Estado_Reclamacion" Type="Self.Estado_Reclamacion" Multiplicity="1" />
+    <End Role="Quejas" Type="Self.Quejas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado_Reclamacion">
+        <PropertyRef Name="Id_Estado_Reclamacion" />
+      </Principal>
+      <Dependent Role="Quejas">
+        <PropertyRef Name="Id_Estado_Reclamacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oficinas_Regiones">
+    <End Role="Regiones" Type="Self.Regiones" Multiplicity="1" />
+    <End Role="Oficinas" Type="Self.Oficinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regiones">
+        <PropertyRef Name="Id_Region" />
+      </Principal>
+      <Dependent Role="Oficinas">
+        <PropertyRef Name="Id_Region" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oficinas_Zonas">
+    <End Role="Zonas" Type="Self.Zonas" Multiplicity="1" />
+    <End Role="Oficinas" Type="Self.Oficinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zonas">
+        <PropertyRef Name="Id_Zonas" />
+      </Principal>
+      <Dependent Role="Oficinas">
+        <PropertyRef Name="Id_Zonas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Puesto">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="Id_Puesto" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="Id_Puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quejas_Tipo_Quejas">
+    <End Role="Tipo_Quejas" Type="Self.Tipo_Quejas" Multiplicity="1" />
+    <End Role="Quejas" Type="Self.Quejas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Quejas">
+        <PropertyRef Name="Id_Tipo_Quejas" />
+      </Principal>
+      <Dependent Role="Quejas">
+        <PropertyRef Name="Id_Tipo_Quejas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quejas_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Quejas" Type="Self.Quejas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Quejas">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reclamo_Tipo_Reclamacion">
+    <End Role="Tipo_Reclamacion" Type="Self.Tipo_Reclamacion" Multiplicity="1" />
+    <End Role="Reclamo" Type="Self.Reclamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Reclamacion">
+        <PropertyRef Name="Id_Tipo_Reclamacion" />
+      </Principal>
+      <Dependent Role="Reclamo">
+        <PropertyRef Name="Id_Tipo_Reclamacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reclamo_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Reclamo" Type="Self.Reclamo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Reclamo">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id_Rol" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="Id_Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AppReportesyQuejasEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Departamento_Origen" EntityType="Self.Departamento_Origen" />
+    <EntitySet Name="Departamento_Responsable" EntityType="Self.Departamento_Responsable" />
+    <EntitySet Name="Estado_Clientes" EntityType="Self.Estado_Clientes" />
+    <EntitySet Name="Estado_Reclamacion" EntityType="Self.Estado_Reclamacion" />
+    <EntitySet Name="Oficinas" EntityType="Self.Oficinas" />
+    <EntitySet Name="Pais" EntityType="Self.Pais" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" />
+    <EntitySet Name="Quejas" EntityType="Self.Quejas" />
+    <EntitySet Name="Reclamo" EntityType="Self.Reclamo" />
+    <EntitySet Name="Regiones" EntityType="Self.Regiones" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="Servidor" EntityType="Self.Servidor" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Tipo_Quejas" EntityType="Self.Tipo_Quejas" />
+    <EntitySet Name="Tipo_Reclamacion" EntityType="Self.Tipo_Reclamacion" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <EntitySet Name="Zonas" EntityType="Self.Zonas" />
+    <AssociationSet Name="FK_Clientes_Estado_Clientes" Association="Self.FK_Clientes_Estado_Clientes">
+      <End Role="Estado_Clientes" EntitySet="Estado_Clientes" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_Oficinas" Association="Self.FK_Clientes_Oficinas">
+      <End Role="Oficinas" EntitySet="Oficinas" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_Pais" Association="Self.FK_Clientes_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clientes_Servidor" Association="Self.FK_Clientes_Servidor">
+      <End Role="Servidor" EntitySet="Servidor" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quejas_Departamento_Origen" Association="Self.FK_Quejas_Departamento_Origen">
+      <End Role="Departamento_Origen" EntitySet="Departamento_Origen" />
+      <End Role="Quejas" EntitySet="Quejas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reclamo_Departamento_Origen" Association="Self.FK_Reclamo_Departamento_Origen">
+      <End Role="Departamento_Origen" EntitySet="Departamento_Origen" />
+      <End Role="Reclamo" EntitySet="Reclamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quejas_Departamento_Responsable" Association="Self.FK_Quejas_Departamento_Responsable">
+      <End Role="Departamento_Responsable" EntitySet="Departamento_Responsable" />
+      <End Role="Quejas" EntitySet="Quejas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reclamo_Departamento_Responsable" Association="Self.FK_Reclamo_Departamento_Responsable">
+      <End Role="Departamento_Responsable" EntitySet="Departamento_Responsable" />
+      <End Role="Reclamo" EntitySet="Reclamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quejas_Estado_Reclamacion" Association="Self.FK_Quejas_Estado_Reclamacion">
+      <End Role="Estado_Reclamacion" EntitySet="Estado_Reclamacion" />
+      <End Role="Quejas" EntitySet="Quejas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oficinas_Regiones" Association="Self.FK_Oficinas_Regiones">
+      <End Role="Regiones" EntitySet="Regiones" />
+      <End Role="Oficinas" EntitySet="Oficinas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oficinas_Zonas" Association="Self.FK_Oficinas_Zonas">
+      <End Role="Zonas" EntitySet="Zonas" />
+      <End Role="Oficinas" EntitySet="Oficinas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Puesto" Association="Self.FK_Usuarios_Puesto">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quejas_Tipo_Quejas" Association="Self.FK_Quejas_Tipo_Quejas">
+      <End Role="Tipo_Quejas" EntitySet="Tipo_Quejas" />
+      <End Role="Quejas" EntitySet="Quejas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quejas_Usuarios" Association="Self.FK_Quejas_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Quejas" EntitySet="Quejas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reclamo_Tipo_Reclamacion" Association="Self.FK_Reclamo_Tipo_Reclamacion">
+      <End Role="Tipo_Reclamacion" EntitySet="Tipo_Reclamacion" />
+      <End Role="Reclamo" EntitySet="Reclamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reclamo_Usuarios" Association="Self.FK_Reclamo_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Reclamo" EntitySet="Reclamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Role" Association="Self.FK_Usuarios_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,90 @@
+﻿@model WebAppReporteriayQuejas.Oficinas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Oficinas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barrio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barrio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Regiones.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Regiones.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Zonas.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Zonas.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Oficina }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

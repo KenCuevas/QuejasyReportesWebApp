@@ -1,0 +1,98 @@
+﻿@model WebAppReporteriayQuejas.Reclamo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reclamo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Identificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion_Reclamacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion_Reclamacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Reclamacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Reclamacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora_Reclamacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora_Reclamacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_Estado_Reclamacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_Estado_Reclamacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comentario_Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comentario_Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento_Origen.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento_Origen.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento_Responsable.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento_Responsable.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Reclamacion.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Reclamacion.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuarios.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuarios.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Reclamo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

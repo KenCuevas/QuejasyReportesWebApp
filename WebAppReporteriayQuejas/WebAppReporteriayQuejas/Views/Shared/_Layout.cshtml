@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Administracion de Reportes y quejas</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @*
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> *@
+                @*Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Administracion de Reportes y quejas", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Sobre Nosotros", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" href="#">
+                            <span class="glyphicon glyphicon-cog"></span> Agregar reporte o queja
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Clientes", "Index", "Clientes") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Departamento Origen", "Index", "DepartamentoOrigen") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Departamento Responsable", "Index", "DepartamentoResponsable") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Estado Clientes", "Index", "EstadoClientes") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Oficinas", "Index", "Oficinas") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Pais", "Index", "Pais") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Puesto", "Index", "Puesto") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Quejas", "Index", "Quejas") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Reclamos", "Index", "Reclamos") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Regiones", "Index", "Regiones") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Roles", "Index", "Roles") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Servidores", "Index", "Servidores") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("TipoQuejas", "Index", "TipoQuejas") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Tipo Reclamacion", "Index", "TipoReclamacion") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Usuarios", "Index", "Usuarios") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Zonas", "Index", "Zonas") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Estado Reclamacion", "Index", "EstadoReclamacion") </span></li>
+                        </ul>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Creado por: Kenny Cuevas</p>
+        </footer>
+    </div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

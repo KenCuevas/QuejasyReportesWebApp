@@ -1,0 +1,130 @@
+﻿@model WebAppReporteriayQuejas.Clientes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Identificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_Creacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_Creacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barrio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barrio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion_2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion_2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado_Clientes.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado_Clientes.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oficinas.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oficinas.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais.Pais_Perteneciente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais.Pais_Perteneciente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Servidor.Identificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Servidor.Identificacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Cliente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

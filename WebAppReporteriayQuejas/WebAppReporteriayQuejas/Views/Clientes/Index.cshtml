@@ -1,0 +1,111 @@
+﻿@model IEnumerable<WebAppReporteriayQuejas.Clientes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Identificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_Creacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sector)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Municipio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Barrio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado_Clientes.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Oficinas.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pais.Pais_Perteneciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Servidor.Identificacion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Identificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_Creacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Provincia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sector)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Municipio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Barrio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion_2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado_Clientes.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Oficinas.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pais.Pais_Perteneciente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Servidor.Identificacion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_Cliente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_Cliente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_Cliente })
+        </td>
+    </tr>
+}
+
+</table>

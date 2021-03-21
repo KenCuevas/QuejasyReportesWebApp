@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c153846a4f8841569c54f26d28a0f295" Name="Diagram1">
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Clientes" Width="1.5" PointX="13.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Departamento_Origen" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Departamento_Responsable" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Estado_Clientes" Width="1.5" PointX="11" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Estado_Reclamacion" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Oficinas" Width="1.5" PointX="11" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Pais" Width="1.5" PointX="11" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Puesto" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Quejas" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Reclamo" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Regiones" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Role" Width="1.5" PointX="1.5" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Servidor" Width="1.5" PointX="11" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Tipo_Quejas" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Tipo_Reclamacion" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Usuarios" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppReportesyQuejasModel.Zonas" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Clientes_Estado_Clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Clientes_Oficinas" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Clientes_Pais" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Clientes_Servidor" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Quejas_Departamento_Origen" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Reclamo_Departamento_Origen" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Quejas_Departamento_Responsable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Reclamo_Departamento_Responsable" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Quejas_Estado_Reclamacion" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Oficinas_Regiones" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Oficinas_Zonas" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Usuarios_Puesto" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Quejas_Tipo_Quejas" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Quejas_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Reclamo_Tipo_Reclamacion" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Reclamo_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AppReportesyQuejasModel.FK_Usuarios_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
