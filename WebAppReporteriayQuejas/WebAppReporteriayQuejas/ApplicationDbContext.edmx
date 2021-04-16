@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AppReportesyQuejasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AppReportesyQuejasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Clientes">
           <Key>
             <PropertyRef Name="Id_Cliente" />
@@ -128,6 +128,14 @@
           </Key>
           <Property Name="Id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ServicioBrindado">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Quejas" Type="int" Nullable="false" />
+          <Property Name="calidadServicio" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Servidor">
           <Key>
@@ -358,6 +366,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ServicioBrindado_Quejas">
+          <End Role="Quejas" Type="Self.Quejas" Multiplicity="1" />
+          <End Role="ServicioBrindado" Type="Self.ServicioBrindado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quejas">
+              <PropertyRef Name="Id_Quejas" />
+            </Principal>
+            <Dependent Role="ServicioBrindado">
+              <PropertyRef Name="Id_Quejas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Usuarios_Puesto">
           <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
@@ -395,6 +415,7 @@
           <EntitySet Name="Reclamo" EntityType="Self.Reclamo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Regiones" EntityType="Self.Regiones" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServicioBrindado" EntityType="Self.ServicioBrindado" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servidor" EntityType="Self.Servidor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Quejas" EntityType="Self.Tipo_Quejas" Schema="dbo" store:Type="Tables" />
@@ -461,6 +482,10 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Reclamo" EntitySet="Reclamo" />
           </AssociationSet>
+          <AssociationSet Name="FK_ServicioBrindado_Quejas" Association="Self.FK_ServicioBrindado_Quejas">
+            <End Role="Quejas" EntitySet="Quejas" />
+            <End Role="ServicioBrindado" EntitySet="ServicioBrindado" />
+          </AssociationSet>
           <AssociationSet Name="FK_Usuarios_Puesto" Association="Self.FK_Usuarios_Puesto">
             <End Role="Puesto" EntitySet="Puesto" />
             <End Role="Usuarios" EntitySet="Usuarios" />
@@ -470,8 +495,7 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AppReportesyQuejasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -588,6 +612,7 @@
           <NavigationProperty Name="Estado_Reclamacion" Relationship="Self.FK_Quejas_Estado_Reclamacion" FromRole="Quejas" ToRole="Estado_Reclamacion" />
           <NavigationProperty Name="Tipo_Quejas" Relationship="Self.FK_Quejas_Tipo_Quejas" FromRole="Quejas" ToRole="Tipo_Quejas" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_Quejas_Usuarios" FromRole="Quejas" ToRole="Usuarios" />
+          <NavigationProperty Name="ServicioBrindado" Relationship="AppReportesyQuejasModel.FK_ServicioBrindado_Quejas" FromRole="Quejas" ToRole="ServicioBrindado" />
         </EntityType>
         <EntityType Name="Reclamo">
           <Key>
@@ -973,7 +998,33 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
+          <EntitySet Name="ServicioBrindado" EntityType="AppReportesyQuejasModel.ServicioBrindado" />
+          <AssociationSet Name="FK_ServicioBrindado_Quejas" Association="AppReportesyQuejasModel.FK_ServicioBrindado_Quejas">
+            <End Role="Quejas" EntitySet="Quejas" />
+            <End Role="ServicioBrindado" EntitySet="ServicioBrindado" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ServicioBrindado">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Quejas" Type="Int32" Nullable="false" />
+          <Property Name="calidadServicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Quejas" Relationship="AppReportesyQuejasModel.FK_ServicioBrindado_Quejas" FromRole="ServicioBrindado" ToRole="Quejas" />
+        </EntityType>
+        <Association Name="FK_ServicioBrindado_Quejas">
+          <End Type="AppReportesyQuejasModel.Quejas" Role="Quejas" Multiplicity="1" />
+          <End Type="AppReportesyQuejasModel.ServicioBrindado" Role="ServicioBrindado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Quejas">
+              <PropertyRef Name="Id_Quejas" />
+            </Principal>
+            <Dependent Role="ServicioBrindado">
+              <PropertyRef Name="Id_Quejas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1168,6 +1219,15 @@
               <MappingFragment StoreEntitySet="Zonas">
                 <ScalarProperty Name="Id_Zonas" ColumnName="Id_Zonas" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServicioBrindado">
+            <EntityTypeMapping TypeName="AppReportesyQuejasModel.ServicioBrindado">
+              <MappingFragment StoreEntitySet="ServicioBrindado">
+                <ScalarProperty Name="calidadServicio" ColumnName="calidadServicio" />
+                <ScalarProperty Name="Id_Quejas" ColumnName="Id_Quejas" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

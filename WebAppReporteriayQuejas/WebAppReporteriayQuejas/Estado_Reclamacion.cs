@@ -11,8 +11,7 @@ namespace WebAppReporteriayQuejas
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Estado_Reclamacion
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +19,7 @@ namespace WebAppReporteriayQuejas
         {
             this.Quejas = new HashSet<Quejas>();
         }
-        [Display(Name = "Estado de la reclamacion")]
+    
         public int Id_Estado_Reclamacion { get; set; }
         public string Descripcion { get; set; }
     

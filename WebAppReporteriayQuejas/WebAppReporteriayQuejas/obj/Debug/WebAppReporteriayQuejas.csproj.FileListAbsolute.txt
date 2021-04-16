@@ -101,8 +101,8 @@ C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\We
 C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\WebAppReporteriayQuejas\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\WebAppReporteriayQuejas\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\WebAppReporteriayQuejas\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\WebAppReporteriayQuejas\obj\Debug\WebAppReporteriayQuejas.csprojAssemblyReference.cache
 C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\WebAppReporteriayQuejas\obj\Debug\WebAppReporteriayQuejas.csproj.CoreCompileInputs.cache
 C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\WebAppReporteriayQuejas\obj\Debug\WebAppReporteriayQuejas.csproj.CopyComplete
 C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\WebAppReporteriayQuejas\obj\Debug\WebAppReporteriayQuejas.dll
 C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\WebAppReporteriayQuejas\obj\Debug\WebAppReporteriayQuejas.pdb
+C:\Users\Kenny Cuevas\Desktop\ReporteriaYQuejasWEBAPP\WebAppReporteriayQuejas\WebAppReporteriayQuejas\obj\Debug\WebAppReporteriayQuejas.csprojAssemblyReference.cache

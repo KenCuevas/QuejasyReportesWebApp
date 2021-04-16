@@ -192,5 +192,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ServicioBrindado">
+      <EntityTypeMapping TypeName="AppReportesyQuejasModel.ServicioBrindado">
+        <MappingFragment StoreEntitySet="ServicioBrindado">
+          <ScalarProperty Name="calidadServicio" ColumnName="calidadServicio" />
+          <ScalarProperty Name="Id_Quejas" ColumnName="Id_Quejas" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

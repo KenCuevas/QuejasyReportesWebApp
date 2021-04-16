@@ -11,26 +11,25 @@ namespace WebAppReporteriayQuejas
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Quejas
     {
-        [Display(Name = "Quejas")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Quejas()
+        {
+            this.ServicioBrindado = new HashSet<ServicioBrindado>();
+        }
+    
         public int Id_Quejas { get; set; }
         public string Identificacion { get; set; }
-        [Display(Name = "Tipo de quejas")]
         public int Id_Tipo_Quejas { get; set; }
-        [Display(Name = "Descripcion de la queja")]
         public string Descripcion_Quejas { get; set; }
         public int Id_Departamento_Origen { get; set; }
         public int Id_Departamento_Responsable { get; set; }
         public int Id_Usuario { get; set; }
-        [Display(Name = "Fecha registro de queja")]
         public System.DateTime Fecha_Queja { get; set; }
-        [Display(Name = "Hora registro de queja")]
         public System.TimeSpan Hora_Queja { get; set; }
         public int Id_Estado_Reclamacion { get; set; }
-        [Display(Name = "Comentario del estado de queja")]
         public string Comentario_Estado { get; set; }
     
         public virtual Departamento_Origen Departamento_Origen { get; set; }
@@ -38,5 +37,7 @@ namespace WebAppReporteriayQuejas
         public virtual Estado_Reclamacion Estado_Reclamacion { get; set; }
         public virtual Tipo_Quejas Tipo_Quejas { get; set; }
         public virtual Usuarios Usuarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ServicioBrindado> ServicioBrindado { get; set; }
     }
 }

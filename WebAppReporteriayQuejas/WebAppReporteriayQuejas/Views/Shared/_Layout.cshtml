@@ -25,7 +25,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Administracion de Reportes y quejas", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre Nosotros", "Contact", "Home")</li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" href="#">
                             <span class="glyphicon glyphicon-cog"></span> Agregar reporte o queja
@@ -49,6 +48,7 @@
                             <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Usuarios", "Index", "Usuarios") </span></li>
                             <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Zonas", "Index", "Zonas") </span></li>
                             <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Estado Reclamacion", "Index", "EstadoReclamacion") </span></li>
+                            <li><span class="glyphicon glyphicon-tags"> @Html.ActionLink("Servicio brindado", "Index", "ServicioBrindadoes") </span></li>
                         </ul>
                 </ul>
                 @Html.Partial("_LoginPartial")

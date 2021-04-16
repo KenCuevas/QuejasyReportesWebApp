@@ -43,5 +43,6 @@ namespace WebAppReporteriayQuejas
         public virtual DbSet<Tipo_Reclamacion> Tipo_Reclamacion { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Zonas> Zonas { get; set; }
+        public virtual DbSet<ServicioBrindado> ServicioBrindado { get; set; }
     }
 }

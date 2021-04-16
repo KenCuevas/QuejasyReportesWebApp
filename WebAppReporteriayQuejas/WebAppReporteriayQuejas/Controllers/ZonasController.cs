@@ -9,7 +9,8 @@ using System.Web.Mvc;
 using WebAppReporteriayQuejas;
 
 namespace WebAppReporteriayQuejas.Controllers
-{
+{   
+    [Authorize]
     public class ZonasController : Controller
     {
         private AppReportesyQuejasEntities db = new AppReportesyQuejasEntities();
@@ -21,6 +22,7 @@ namespace WebAppReporteriayQuejas.Controllers
         }
 
         // GET: Zonas/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +38,7 @@ namespace WebAppReporteriayQuejas.Controllers
         }
 
         // GET: Zonas/Create
+
         public ActionResult Create()
         {
             return View();
@@ -57,7 +60,7 @@ namespace WebAppReporteriayQuejas.Controllers
 
             return View(zonas);
         }
-
+     
         // GET: Zonas/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -72,7 +75,7 @@ namespace WebAppReporteriayQuejas.Controllers
             }
             return View(zonas);
         }
-
+     
         // POST: Zonas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -88,7 +91,7 @@ namespace WebAppReporteriayQuejas.Controllers
             }
             return View(zonas);
         }
-
+        
         // GET: Zonas/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -103,7 +106,7 @@ namespace WebAppReporteriayQuejas.Controllers
             }
             return View(zonas);
         }
-
+        
         // POST: Zonas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

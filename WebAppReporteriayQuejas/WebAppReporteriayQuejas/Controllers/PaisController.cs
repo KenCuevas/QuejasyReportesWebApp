@@ -10,6 +10,7 @@ using WebAppReporteriayQuejas;
 
 namespace WebAppReporteriayQuejas.Controllers
 {
+    [Authorize]
     public class PaisController : Controller
     {
         private AppReportesyQuejasEntities db = new AppReportesyQuejasEntities();

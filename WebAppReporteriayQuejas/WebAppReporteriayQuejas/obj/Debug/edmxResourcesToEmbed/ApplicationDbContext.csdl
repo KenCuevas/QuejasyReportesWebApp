@@ -113,6 +113,7 @@
     <NavigationProperty Name="Estado_Reclamacion" Relationship="Self.FK_Quejas_Estado_Reclamacion" FromRole="Quejas" ToRole="Estado_Reclamacion" />
     <NavigationProperty Name="Tipo_Quejas" Relationship="Self.FK_Quejas_Tipo_Quejas" FromRole="Quejas" ToRole="Tipo_Quejas" />
     <NavigationProperty Name="Usuarios" Relationship="Self.FK_Quejas_Usuarios" FromRole="Quejas" ToRole="Usuarios" />
+    <NavigationProperty Name="ServicioBrindado" Relationship="AppReportesyQuejasModel.FK_ServicioBrindado_Quejas" FromRole="Quejas" ToRole="ServicioBrindado" />
   </EntityType>
   <EntityType Name="Reclamo">
     <Key>
@@ -498,5 +499,31 @@
       <End Role="Role" EntitySet="Role" />
       <End Role="Usuarios" EntitySet="Usuarios" />
     </AssociationSet>
+    <EntitySet Name="ServicioBrindado" EntityType="AppReportesyQuejasModel.ServicioBrindado" />
+    <AssociationSet Name="FK_ServicioBrindado_Quejas" Association="AppReportesyQuejasModel.FK_ServicioBrindado_Quejas">
+      <End Role="Quejas" EntitySet="Quejas" />
+      <End Role="ServicioBrindado" EntitySet="ServicioBrindado" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="ServicioBrindado">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Quejas" Type="Int32" Nullable="false" />
+    <Property Name="calidadServicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Quejas" Relationship="AppReportesyQuejasModel.FK_ServicioBrindado_Quejas" FromRole="ServicioBrindado" ToRole="Quejas" />
+  </EntityType>
+  <Association Name="FK_ServicioBrindado_Quejas">
+    <End Type="AppReportesyQuejasModel.Quejas" Role="Quejas" Multiplicity="1" />
+    <End Type="AppReportesyQuejasModel.ServicioBrindado" Role="ServicioBrindado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quejas">
+        <PropertyRef Name="Id_Quejas" />
+      </Principal>
+      <Dependent Role="ServicioBrindado">
+        <PropertyRef Name="Id_Quejas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

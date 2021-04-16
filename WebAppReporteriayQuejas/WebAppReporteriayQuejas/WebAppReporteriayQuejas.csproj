@@ -202,6 +202,7 @@
     <Compile Include="Controllers\ReclamosController.cs" />
     <Compile Include="Controllers\RegionesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\ServicioBrindadoesController.cs" />
     <Compile Include="Controllers\ServidoresController.cs" />
     <Compile Include="Controllers\TipoQuejasController.cs" />
     <Compile Include="Controllers\TipoReclamacionController.cs" />
@@ -247,6 +248,9 @@
     <Compile Include="Role.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="ServicioBrindado.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Servidor.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
@@ -278,6 +282,8 @@
       <DependentUpon>ApplicationDbContext.edmx</DependentUpon>
       <LastGenOutput>ApplicationDbContext.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\bootstrap-Darkly.css" />
+    <Content Include="Content\bootstrap-Sketchy.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -425,6 +431,11 @@
     <Content Include="Views\Zonas\Details.cshtml" />
     <Content Include="Views\Zonas\Edit.cshtml" />
     <Content Include="Views\Zonas\Index.cshtml" />
+    <Content Include="Views\ServicioBrindadoes\Create.cshtml" />
+    <Content Include="Views\ServicioBrindadoes\Delete.cshtml" />
+    <Content Include="Views\ServicioBrindadoes\Details.cshtml" />
+    <Content Include="Views\ServicioBrindadoes\Edit.cshtml" />
+    <Content Include="Views\ServicioBrindadoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

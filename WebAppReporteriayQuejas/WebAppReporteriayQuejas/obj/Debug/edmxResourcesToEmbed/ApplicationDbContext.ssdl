@@ -124,6 +124,14 @@
     <Property Name="Id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="ServicioBrindado">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Quejas" Type="int" Nullable="false" />
+    <Property Name="calidadServicio" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Servidor">
     <Key>
       <PropertyRef Name="Id_Servidor" />
@@ -353,6 +361,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ServicioBrindado_Quejas">
+    <End Role="Quejas" Type="Self.Quejas" Multiplicity="1" />
+    <End Role="ServicioBrindado" Type="Self.ServicioBrindado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quejas">
+        <PropertyRef Name="Id_Quejas" />
+      </Principal>
+      <Dependent Role="ServicioBrindado">
+        <PropertyRef Name="Id_Quejas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Usuarios_Puesto">
     <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
@@ -390,6 +410,7 @@
     <EntitySet Name="Reclamo" EntityType="Self.Reclamo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Regiones" EntityType="Self.Regiones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServicioBrindado" EntityType="Self.ServicioBrindado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Servidor" EntityType="Self.Servidor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Quejas" EntityType="Self.Tipo_Quejas" Schema="dbo" store:Type="Tables" />
@@ -455,6 +476,10 @@
     <AssociationSet Name="FK_Reclamo_Usuarios" Association="Self.FK_Reclamo_Usuarios">
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="Reclamo" EntitySet="Reclamo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServicioBrindado_Quejas" Association="Self.FK_ServicioBrindado_Quejas">
+      <End Role="Quejas" EntitySet="Quejas" />
+      <End Role="ServicioBrindado" EntitySet="ServicioBrindado" />
     </AssociationSet>
     <AssociationSet Name="FK_Usuarios_Puesto" Association="Self.FK_Usuarios_Puesto">
       <End Role="Puesto" EntitySet="Puesto" />
