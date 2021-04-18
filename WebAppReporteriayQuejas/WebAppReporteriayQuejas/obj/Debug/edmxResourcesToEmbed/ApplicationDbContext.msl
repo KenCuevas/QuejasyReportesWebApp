@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="AppReportesyQuejasModelStoreContainer" CdmEntityContainer="AppReportesyQuejasEntities">
     <EntitySetMapping Name="Clientes">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Clientes">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Clientes)">
         <MappingFragment StoreEntitySet="Clientes">
           <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
           <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
@@ -23,7 +23,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Departamento_Origen">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Departamento_Origen">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Departamento_Origen)">
         <MappingFragment StoreEntitySet="Departamento_Origen">
           <ScalarProperty Name="Id_Departamento_Origen" ColumnName="Id_Departamento_Origen" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -31,7 +31,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Departamento_Responsable">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Departamento_Responsable">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Departamento_Responsable)">
         <MappingFragment StoreEntitySet="Departamento_Responsable">
           <ScalarProperty Name="Id_Departamento_Responsable" ColumnName="Id_Departamento_Responsable" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -39,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Estado_Clientes">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Estado_Clientes">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Estado_Clientes)">
         <MappingFragment StoreEntitySet="Estado_Clientes">
           <ScalarProperty Name="Id_Estado" ColumnName="Id_Estado" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -47,7 +47,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Estado_Reclamacion">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Estado_Reclamacion">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Estado_Reclamacion)">
         <MappingFragment StoreEntitySet="Estado_Reclamacion">
           <ScalarProperty Name="Id_Estado_Reclamacion" ColumnName="Id_Estado_Reclamacion" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -55,7 +55,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Oficinas">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Oficinas">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Oficinas)">
         <MappingFragment StoreEntitySet="Oficinas">
           <ScalarProperty Name="Id_Oficina" ColumnName="Id_Oficina" />
           <ScalarProperty Name="Id_Zonas" ColumnName="Id_Zonas" />
@@ -71,7 +71,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pais">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Pais">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Pais)">
         <MappingFragment StoreEntitySet="Pais">
           <ScalarProperty Name="Id_Pais" ColumnName="Id_Pais" />
           <ScalarProperty Name="Pais_Perteneciente" ColumnName="Pais_Perteneciente" />
@@ -79,7 +79,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Puesto">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Puesto">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Puesto)">
         <MappingFragment StoreEntitySet="Puesto">
           <ScalarProperty Name="Id_Puesto" ColumnName="Id_Puesto" />
           <ScalarProperty Name="Des_Puesto" ColumnName="Des_Puesto" />
@@ -88,7 +88,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Quejas">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Quejas">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Quejas)">
         <MappingFragment StoreEntitySet="Quejas">
           <ScalarProperty Name="Id_Quejas" ColumnName="Id_Quejas" />
           <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
@@ -105,7 +105,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Reclamo">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Reclamo">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Reclamo)">
         <MappingFragment StoreEntitySet="Reclamo">
           <ScalarProperty Name="Id_Reclamo" ColumnName="Id_Reclamo" />
           <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
@@ -122,7 +122,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Regiones">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Regiones">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Regiones)">
         <MappingFragment StoreEntitySet="Regiones">
           <ScalarProperty Name="Id_Region" ColumnName="Id_Region" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -130,7 +130,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Role">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Role">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Role)">
         <MappingFragment StoreEntitySet="Role">
           <ScalarProperty Name="Id_Rol" ColumnName="Id_Rol" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -138,7 +138,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Servidor">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Servidor">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Servidor)">
         <MappingFragment StoreEntitySet="Servidor">
           <ScalarProperty Name="Id_Servidor" ColumnName="Id_Servidor" />
           <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
@@ -147,18 +147,18 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.sysdiagrams)">
         <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tipo_Quejas">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Tipo_Quejas">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Tipo_Quejas)">
         <MappingFragment StoreEntitySet="Tipo_Quejas">
           <ScalarProperty Name="Id_Tipo_Quejas" ColumnName="Id_Tipo_Quejas" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -166,7 +166,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tipo_Reclamacion">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Tipo_Reclamacion">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Tipo_Reclamacion)">
         <MappingFragment StoreEntitySet="Tipo_Reclamacion">
           <ScalarProperty Name="Id_Tipo_Reclamacion" ColumnName="Id_Tipo_Reclamacion" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -174,7 +174,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Usuarios">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Usuarios)">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
           <ScalarProperty Name="Fecha_Creacion" ColumnName="Fecha_Creacion" />
@@ -185,19 +185,42 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Zonas">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Zonas">
+      <EntityTypeMapping TypeName="IsTypeOf(AppReportesyQuejasModel.Zonas)">
         <MappingFragment StoreEntitySet="Zonas">
           <ScalarProperty Name="Id_Zonas" ColumnName="Id_Zonas" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ServicioBrindado">
-      <EntityTypeMapping TypeName="AppReportesyQuejasModel.ServicioBrindado">
-        <MappingFragment StoreEntitySet="ServicioBrindado">
-          <ScalarProperty Name="calidadServicio" ColumnName="calidadServicio" />
-          <ScalarProperty Name="Id_Quejas" ColumnName="Id_Quejas" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram1" FunctionName="AppReportesyQuejasModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram1" FunctionName="AppReportesyQuejasModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram1" FunctionName="AppReportesyQuejasModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition1" FunctionName="AppReportesyQuejasModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AppReportesyQuejasModel.sp_helpdiagramdefinition1_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams1" FunctionName="AppReportesyQuejasModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram1" FunctionName="AppReportesyQuejasModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams1" FunctionName="AppReportesyQuejasModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="Calidads">
+      <EntityTypeMapping TypeName="AppReportesyQuejasModel.Calidad">
+        <MappingFragment StoreEntitySet="Calidad">
+          <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+          <ScalarProperty Name="Id_CalidadServicio" ColumnName="Id_CalidadServicio" />
+          <ScalarProperty Name="DescripcionServicio" ColumnName="DescripcionServicio" />
+          <ScalarProperty Name="Id_tiposervicio" ColumnName="Id_tiposervicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBCalidadServicios">
+      <EntityTypeMapping TypeName="AppReportesyQuejasModel.TBCalidadServicio">
+        <MappingFragment StoreEntitySet="TBCalidadServicio">
+          <ScalarProperty Name="DescServicio" ColumnName="DescServicio" />
+          <ScalarProperty Name="Id_CalidadServicio" ColumnName="Id_CalidadServicio" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -19,6 +19,7 @@ namespace WebAppReporteriayQuejas
         {
             this.Quejas = new HashSet<Quejas>();
             this.Reclamo = new HashSet<Reclamo>();
+            this.Calidads = new HashSet<Calidad>();
         }
     
         public int Id_Usuario { get; set; }
@@ -33,5 +34,7 @@ namespace WebAppReporteriayQuejas
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reclamo> Reclamo { get; set; }
         public virtual Role Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Calidad> Calidads { get; set; }
     }
 }

@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AppReportesyQuejasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Calidad">
+    <Key>
+      <PropertyRef Name="Id_tiposervicio" />
+    </Key>
+    <Property Name="Id_tiposervicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescripcionServicio" Type="nvarchar(max)" />
+    <Property Name="Id_CalidadServicio" Type="int" Nullable="false" />
+    <Property Name="Id_Usuario" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Clientes">
     <Key>
       <PropertyRef Name="Id_Cliente" />
@@ -124,14 +133,6 @@
     <Property Name="Id_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="ServicioBrindado">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Id_Quejas" Type="int" Nullable="false" />
-    <Property Name="calidadServicio" Type="varchar" MaxLength="50" Nullable="false" />
-  </EntityType>
   <EntityType Name="Servidor">
     <Key>
       <PropertyRef Name="Id_Servidor" />
@@ -149,6 +150,13 @@
     <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TBCalidadServicio">
+    <Key>
+      <PropertyRef Name="Id_CalidadServicio" />
+    </Key>
+    <Property Name="Id_CalidadServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DescServicio" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Tipo_Quejas">
     <Key>
@@ -181,6 +189,30 @@
     <Property Name="Id_Zonas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Calidad_TBCalidadServicio">
+    <End Role="TBCalidadServicio" Type="Self.TBCalidadServicio" Multiplicity="1" />
+    <End Role="Calidad" Type="Self.Calidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBCalidadServicio">
+        <PropertyRef Name="Id_CalidadServicio" />
+      </Principal>
+      <Dependent Role="Calidad">
+        <PropertyRef Name="Id_CalidadServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Calidad_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Calidad" Type="Self.Calidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Calidad">
+        <PropertyRef Name="Id_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Clientes_Estado_Clientes">
     <End Role="Estado_Clientes" Type="Self.Estado_Clientes" Multiplicity="1" />
     <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
@@ -361,18 +393,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ServicioBrindado_Quejas">
-    <End Role="Quejas" Type="Self.Quejas" Multiplicity="1" />
-    <End Role="ServicioBrindado" Type="Self.ServicioBrindado" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Quejas">
-        <PropertyRef Name="Id_Quejas" />
-      </Principal>
-      <Dependent Role="ServicioBrindado">
-        <PropertyRef Name="Id_Quejas" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Usuarios_Puesto">
     <End Role="Puesto" Type="Self.Puesto" Multiplicity="1" />
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
@@ -397,7 +417,39 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="AppReportesyQuejasModelStoreContainer">
+    <EntitySet Name="Calidad" EntityType="Self.Calidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Departamento_Origen" EntityType="Self.Departamento_Origen" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Departamento_Responsable" EntityType="Self.Departamento_Responsable" Schema="dbo" store:Type="Tables" />
@@ -410,13 +462,21 @@
     <EntitySet Name="Reclamo" EntityType="Self.Reclamo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Regiones" EntityType="Self.Regiones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ServicioBrindado" EntityType="Self.ServicioBrindado" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Servidor" EntityType="Self.Servidor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBCalidadServicio" EntityType="Self.TBCalidadServicio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Quejas" EntityType="Self.Tipo_Quejas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Reclamacion" EntityType="Self.Tipo_Reclamacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Zonas" EntityType="Self.Zonas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Calidad_TBCalidadServicio" Association="Self.FK_Calidad_TBCalidadServicio">
+      <End Role="TBCalidadServicio" EntitySet="TBCalidadServicio" />
+      <End Role="Calidad" EntitySet="Calidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Calidad_Usuarios" Association="Self.FK_Calidad_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Calidad" EntitySet="Calidad" />
+    </AssociationSet>
     <AssociationSet Name="FK_Clientes_Estado_Clientes" Association="Self.FK_Clientes_Estado_Clientes">
       <End Role="Estado_Clientes" EntitySet="Estado_Clientes" />
       <End Role="Clientes" EntitySet="Clientes" />
@@ -476,10 +536,6 @@
     <AssociationSet Name="FK_Reclamo_Usuarios" Association="Self.FK_Reclamo_Usuarios">
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="Reclamo" EntitySet="Reclamo" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ServicioBrindado_Quejas" Association="Self.FK_ServicioBrindado_Quejas">
-      <End Role="Quejas" EntitySet="Quejas" />
-      <End Role="ServicioBrindado" EntitySet="ServicioBrindado" />
     </AssociationSet>
     <AssociationSet Name="FK_Usuarios_Puesto" Association="Self.FK_Usuarios_Puesto">
       <End Role="Puesto" EntitySet="Puesto" />

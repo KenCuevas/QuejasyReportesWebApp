@@ -184,10 +184,15 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Calidad.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Clientes.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CalidadServiciosController.cs" />
+    <Compile Include="Controllers\CalificarController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\DepartamentoOrigenController.cs" />
     <Compile Include="Controllers\DepartamentoResponsableController.cs" />
@@ -202,7 +207,6 @@
     <Compile Include="Controllers\ReclamosController.cs" />
     <Compile Include="Controllers\RegionesController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\ServicioBrindadoesController.cs" />
     <Compile Include="Controllers\ServidoresController.cs" />
     <Compile Include="Controllers\TipoQuejasController.cs" />
     <Compile Include="Controllers\TipoReclamacionController.cs" />
@@ -248,14 +252,23 @@
     <Compile Include="Role.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="ServicioBrindado.cs">
+    <Compile Include="Servidor.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Servidor.cs">
+    <Compile Include="sp_helpdiagramdefinition1_Result.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="sysdiagrams.cs">
+      <DependentUpon>ApplicationDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TBCalidadServicio.cs">
       <DependentUpon>ApplicationDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Tipo_Quejas.cs">
@@ -431,11 +444,16 @@
     <Content Include="Views\Zonas\Details.cshtml" />
     <Content Include="Views\Zonas\Edit.cshtml" />
     <Content Include="Views\Zonas\Index.cshtml" />
-    <Content Include="Views\ServicioBrindadoes\Create.cshtml" />
-    <Content Include="Views\ServicioBrindadoes\Delete.cshtml" />
-    <Content Include="Views\ServicioBrindadoes\Details.cshtml" />
-    <Content Include="Views\ServicioBrindadoes\Edit.cshtml" />
-    <Content Include="Views\ServicioBrindadoes\Index.cshtml" />
+    <Content Include="Views\CalidadServicios\Create.cshtml" />
+    <Content Include="Views\CalidadServicios\Delete.cshtml" />
+    <Content Include="Views\CalidadServicios\Details.cshtml" />
+    <Content Include="Views\CalidadServicios\Edit.cshtml" />
+    <Content Include="Views\CalidadServicios\Index.cshtml" />
+    <Content Include="Views\Calificar\Create.cshtml" />
+    <Content Include="Views\Calificar\Delete.cshtml" />
+    <Content Include="Views\Calificar\Details.cshtml" />
+    <Content Include="Views\Calificar\Edit.cshtml" />
+    <Content Include="Views\Calificar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

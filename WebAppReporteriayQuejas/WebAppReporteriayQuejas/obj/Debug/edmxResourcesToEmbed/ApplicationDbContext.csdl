@@ -113,7 +113,6 @@
     <NavigationProperty Name="Estado_Reclamacion" Relationship="Self.FK_Quejas_Estado_Reclamacion" FromRole="Quejas" ToRole="Estado_Reclamacion" />
     <NavigationProperty Name="Tipo_Quejas" Relationship="Self.FK_Quejas_Tipo_Quejas" FromRole="Quejas" ToRole="Tipo_Quejas" />
     <NavigationProperty Name="Usuarios" Relationship="Self.FK_Quejas_Usuarios" FromRole="Quejas" ToRole="Usuarios" />
-    <NavigationProperty Name="ServicioBrindado" Relationship="AppReportesyQuejasModel.FK_ServicioBrindado_Quejas" FromRole="Quejas" ToRole="ServicioBrindado" />
   </EntityType>
   <EntityType Name="Reclamo">
     <Key>
@@ -199,6 +198,7 @@
     <NavigationProperty Name="Quejas" Relationship="Self.FK_Quejas_Usuarios" FromRole="Usuarios" ToRole="Quejas" />
     <NavigationProperty Name="Reclamo" Relationship="Self.FK_Reclamo_Usuarios" FromRole="Usuarios" ToRole="Reclamo" />
     <NavigationProperty Name="Role" Relationship="Self.FK_Usuarios_Role" FromRole="Usuarios" ToRole="Role" />
+    <NavigationProperty Name="Calidads" Relationship="AppReportesyQuejasModel.FK_Calidad_Usuarios" FromRole="Usuarios" ToRole="Calidad" />
   </EntityType>
   <EntityType Name="Zonas">
     <Key>
@@ -499,30 +499,132 @@
       <End Role="Role" EntitySet="Role" />
       <End Role="Usuarios" EntitySet="Usuarios" />
     </AssociationSet>
-    <EntitySet Name="ServicioBrindado" EntityType="AppReportesyQuejasModel.ServicioBrindado" />
-    <AssociationSet Name="FK_ServicioBrindado_Quejas" Association="AppReportesyQuejasModel.FK_ServicioBrindado_Quejas">
-      <End Role="Quejas" EntitySet="Quejas" />
-      <End Role="ServicioBrindado" EntitySet="ServicioBrindado" />
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(AppReportesyQuejasModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(AppReportesyQuejasModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition1" ReturnType="Collection(AppReportesyQuejasModel.sp_helpdiagramdefinition1_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram1">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams1" />
+    <EntitySet Name="Calidads" EntityType="AppReportesyQuejasModel.Calidad" />
+    <EntitySet Name="TBCalidadServicios" EntityType="AppReportesyQuejasModel.TBCalidadServicio" />
+    <AssociationSet Name="FK_Calidad_TBCalidadServicio" Association="AppReportesyQuejasModel.FK_Calidad_TBCalidadServicio">
+      <End Role="TBCalidadServicio" EntitySet="TBCalidadServicios" />
+      <End Role="Calidad" EntitySet="Calidads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Calidad_Usuarios" Association="AppReportesyQuejasModel.FK_Calidad_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Calidad" EntitySet="Calidads" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="ServicioBrindado">
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition1_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="Calidad">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="Id_tiposervicio" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Id_Quejas" Type="Int32" Nullable="false" />
-    <Property Name="calidadServicio" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Quejas" Relationship="AppReportesyQuejasModel.FK_ServicioBrindado_Quejas" FromRole="ServicioBrindado" ToRole="Quejas" />
+    <Property Name="Id_tiposervicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescripcionServicio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Id_CalidadServicio" Type="Int32" Nullable="false" />
+    <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TBCalidadServicio" Relationship="AppReportesyQuejasModel.FK_Calidad_TBCalidadServicio" FromRole="Calidad" ToRole="TBCalidadServicio" />
+    <NavigationProperty Name="Usuario" Relationship="AppReportesyQuejasModel.FK_Calidad_Usuarios" FromRole="Calidad" ToRole="Usuarios" />
   </EntityType>
-  <Association Name="FK_ServicioBrindado_Quejas">
-    <End Type="AppReportesyQuejasModel.Quejas" Role="Quejas" Multiplicity="1" />
-    <End Type="AppReportesyQuejasModel.ServicioBrindado" Role="ServicioBrindado" Multiplicity="*" />
+  <EntityType Name="TBCalidadServicio">
+    <Key>
+      <PropertyRef Name="Id_CalidadServicio" />
+    </Key>
+    <Property Name="Id_CalidadServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DescServicio" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Calidads" Relationship="AppReportesyQuejasModel.FK_Calidad_TBCalidadServicio" FromRole="TBCalidadServicio" ToRole="Calidad" />
+  </EntityType>
+  <Association Name="FK_Calidad_TBCalidadServicio">
+    <End Type="AppReportesyQuejasModel.TBCalidadServicio" Role="TBCalidadServicio" Multiplicity="1" />
+    <End Type="AppReportesyQuejasModel.Calidad" Role="Calidad" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Quejas">
-        <PropertyRef Name="Id_Quejas" />
+      <Principal Role="TBCalidadServicio">
+        <PropertyRef Name="Id_CalidadServicio" />
       </Principal>
-      <Dependent Role="ServicioBrindado">
-        <PropertyRef Name="Id_Quejas" />
+      <Dependent Role="Calidad">
+        <PropertyRef Name="Id_CalidadServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Calidad_Usuarios">
+    <End Type="AppReportesyQuejasModel.Usuarios" Role="Usuarios" Multiplicity="1" />
+    <End Type="AppReportesyQuejasModel.Calidad" Role="Calidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id_Usuario" />
+      </Principal>
+      <Dependent Role="Calidad">
+        <PropertyRef Name="Id_Usuario" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

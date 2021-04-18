@@ -14,12 +14,6 @@ namespace WebAppReporteriayQuejas
     
     public partial class Quejas
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Quejas()
-        {
-            this.ServicioBrindado = new HashSet<ServicioBrindado>();
-        }
-    
         public int Id_Quejas { get; set; }
         public string Identificacion { get; set; }
         public int Id_Tipo_Quejas { get; set; }
@@ -37,7 +31,5 @@ namespace WebAppReporteriayQuejas
         public virtual Estado_Reclamacion Estado_Reclamacion { get; set; }
         public virtual Tipo_Quejas Tipo_Quejas { get; set; }
         public virtual Usuarios Usuarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServicioBrindado> ServicioBrindado { get; set; }
     }
 }
